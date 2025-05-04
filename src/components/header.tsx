@@ -50,6 +50,11 @@ const Header = () => {
                     )}
                 </div>
             </div>
+            <div>
+                <svg width="24" height="24" fill={"#ef4444"} stroke="#ef4444" strokeWidth="2">
+                    <path d="M12 20l8-8H4z" />
+                </svg>
+            </div>
         </div>
     )
 }

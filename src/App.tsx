@@ -12,6 +12,8 @@ import Header from './components/header';
 import HomePage from './pages/homePage';
 import RegisterPage from './pages/registerPage';
 import { AuthProvider } from './context/authContext';
+import SubmitAnswer from './pages/submitAnswer';
+import PostPage from './pages/postPage';
 
 // Main Layout
 function MainLayout() {
@@ -48,26 +50,27 @@ const registerRoute = createRoute({
   component: RegisterPage,
 });
 
+const submitAnswer = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/submit-answer',
+  component: SubmitAnswer
+})
 
-// const myItemsRoute = createRoute({
-//   getParentRoute: () => rootRoute,
-//   path: '/my-items',
-//   component: MyItemsPage,
-// });
 
-// const buyRoute = createRoute({
-//   getParentRoute: () => rootRoute,
-//   path: '/buy',
-//   component: BuyPage,
-// });
+const postRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/posts/$postId',
+  component: PostPage,
+});
+
 
 // Route Tree
 const routeTree = rootRoute.addChildren([
   homeRoute,
   loginRoute,
   registerRoute,
-  // myItemsRoute,
-  // buyRoute,
+  submitAnswer,
+  postRoute
 ]);
 
 // Create Router
