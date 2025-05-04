@@ -36,7 +36,7 @@ function VoteBox(props: {
 
         try {
             await axios.post(
-                `/api/posts/${postId}/vote`,
+                `/api/vote${postId}`,
                 { isUpvote: !isSameVote ? isUpvote : !isUpvote }, // send the new intended value
                 {
                     headers: {

@@ -16,6 +16,10 @@ const Header = () => {
         navigate({ to: '/login' });
     }
 
+    function homeNavHandler() {
+        navigate({ to: '/' });
+    }
+
     function logoutHandler() {
         clearData();
         navigate({ to: '/' }); // optional: send back to home after logout
@@ -31,7 +35,7 @@ const Header = () => {
         <div className='h-[60px] bg-gray-700 flex flex-row justify-center items-center'>
             <div className='w-[70%] flex flex-row justify-between items-center'>
                 <div className='flex flex-row gap-7 font-bold'>
-                    <div className='cursor-pointer'>Home</div>
+                    <div className='cursor-pointer' onClick={homeNavHandler}>Home</div>
                     <div className='cursor-pointer'>My uploads</div>
                     <div className='cursor-pointer'>Tags</div>
                 </div>
@@ -49,11 +53,6 @@ const Header = () => {
                         </div>
                     )}
                 </div>
-            </div>
-            <div>
-                <svg width="24" height="24" fill={"#ef4444"} stroke="#ef4444" strokeWidth="2">
-                    <path d="M12 20l8-8H4z" />
-                </svg>
             </div>
         </div>
     )

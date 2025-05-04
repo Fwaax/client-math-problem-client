@@ -30,6 +30,8 @@ const HomePage = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
+            console.log('response.data.data', response.data.data);
+
             return response.data.data as PostsResponse;
         },
     });

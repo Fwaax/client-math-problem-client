@@ -14,6 +14,7 @@ import RegisterPage from './pages/registerPage';
 import { AuthProvider } from './context/authContext';
 import SubmitAnswer from './pages/submitAnswer';
 import PostPage from './pages/postPage';
+import SpecificUserPage from './pages/specificUserPage';
 
 // Main Layout
 function MainLayout() {
@@ -21,7 +22,7 @@ function MainLayout() {
     <div className="flex flex-col w-full min-h-screen">
       <Header />
       <div className="flex-grow">
-        <Outlet /> {/* TanStack's Outlet is the same as React Router */}
+        <Outlet />
       </div>
     </div>
   );
@@ -63,6 +64,12 @@ const postRoute = createRoute({
   component: PostPage,
 });
 
+const userPostsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/users/$userId/posts',
+  component: SpecificUserPage
+})
+
 
 // Route Tree
 const routeTree = rootRoute.addChildren([
@@ -70,7 +77,8 @@ const routeTree = rootRoute.addChildren([
   loginRoute,
   registerRoute,
   submitAnswer,
-  postRoute
+  postRoute,
+  userPostsRoute
 ]);
 
 // Create Router

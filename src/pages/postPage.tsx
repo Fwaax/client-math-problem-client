@@ -29,7 +29,7 @@ const PostPage = () => {
         queryKey: ['postData', postId, token],
         enabled: !!token,
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:7821/post/posts/${postId}`, {
+            const res = await axios.get(`http://localhost:7821/post/${postId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             return res.data.data;
